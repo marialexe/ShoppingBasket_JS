@@ -18,6 +18,16 @@ Park.prototype = {
         this.enclosure.splice(index,1);
       }
     }
+  },
+
+  moreThanTwoOffspring: function() {
+    var moreThanTwoOffsprings = [];
+    for(var i=0; i<this.enclosure.length;i++) {
+      if(this.enclosure[i].offspring > 2) {
+        moreThanTwoOffsprings.push(this.enclosure[i]);
+      }
+    }
+    return moreThanTwoOffsprings;
   }
 
 }

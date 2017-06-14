@@ -14,6 +14,7 @@ describe("Park", function() {
     dinosaur1 = new Dinosaur("Tyrannosaurus",2);
     dinosaur2 = new Dinosaur("Velociraptor",1);
     dinosaur3 = new Dinosaur("Triceratops",3);
+    dinosaur4 = new Dinosaur("Tyrannosaurus",4);
   });
 
   it("enclosure should start empty", function(){
@@ -38,7 +39,6 @@ describe("Park", function() {
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    console.log(park.enclosure);
     park.removeDinosaurByType("Velociraptor");
     assert.strictEqual(2,park.enclosure.length);
   });
@@ -46,9 +46,28 @@ describe("Park", function() {
   it("should be able to remove all dinosaurs of a particular type - v2", function() {
     park.addDinosaur(dinosaur1);
     park.addDinosaur(dinosaur3);
-    console.log(park.enclosure);
     park.removeDinosaurByType("Triceratops");
     assert.strictEqual(1,park.enclosure.length);
   });
 
+  it("should get all the dinosaurs with an offspring count of more than 2 - v1 ", function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    assert.strictEqual(1,park.moreThanTwoOffspring().length);
+  });
+
+  it("should get all the dinosaurs with an offspring count of more than 2 - v2", function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+    assert.strictEqual(2,park.moreThanTwoOffspring().length);
+  });
+
+  it("should get all the dinosaurs with an offspring count of more than 2 - v3", function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+    assert.strictEqual(4,park.moreThanTwoOffspring()[1].offspring);
+  });
 })
