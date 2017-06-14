@@ -16,4 +16,9 @@ describe("Park", function() {
     dinosaur3 = new Dinosaur("Triceratops",3);
   });
 
+  it("enclosure should start empty", function(){
+    assert.strictEqual(0,park.enclosure.length);
+    // assert.strictEqual([],park.enclosure);
+  });
+
 })
