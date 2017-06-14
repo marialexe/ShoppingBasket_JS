@@ -32,4 +32,23 @@ describe("Park", function() {
     assert.strictEqual(3,park.enclosure.length);
   });
 
+  it("should be able to remove all dinosaurs of a particular type - v1", function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    console.log(park.enclosure);
+    park.removeDinosaurByType("Velociraptor");
+    assert.strictEqual(2,park.enclosure.length);
+  });
+
+  it("should be able to remove all dinosaurs of a particular type - v2", function() {
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur3);
+    console.log(park.enclosure);
+    park.removeDinosaurByType("Triceratops");
+    assert.strictEqual(1,park.enclosure.length);
+  });
+
 })
