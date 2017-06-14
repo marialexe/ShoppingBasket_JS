@@ -8,8 +8,6 @@ describe("Dinosaur", function() {
 
   beforeEach(function() {
     dinosaur1 = new Dinosaur("Tyrannosaurus",2);
-    dinosaur2 = new Dinosaur("Velociraptor",1);
-    dinosaur3 = new Dinosaur("Triceratops",3);
   });
 
   it("should output the dinosaur type", function() {
