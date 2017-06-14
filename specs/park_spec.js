@@ -11,10 +11,13 @@ describe("Park", function() {
 
   beforeEach(function(){
     park = new Park();
-    dinosaur1 = new Dinosaur("Tyrannosaurus",2);
-    dinosaur2 = new Dinosaur("Velociraptor",1);
-    dinosaur3 = new Dinosaur("Triceratops",3);
-    dinosaur4 = new Dinosaur("Tyrannosaurus",4);
+    dinosaur1 = new Dinosaur("Tyrannosaurus",2, 2016);
+    dinosaur2 = new Dinosaur("Velociraptor",1, 2017);
+    dinosaur3 = new Dinosaur("Triceratops",3, 2016);
+    dinosaur4 = new Dinosaur("Tyrannosaurus",4, 2017);
+    dinosaur5 = new Dinosaur("Tyrannosaurus",1, 2016);
+    dinosaur6 = new Dinosaur("Velociraptor",0, 2016);
+
   });
 
   it("enclosure should start empty", function(){
@@ -70,4 +73,26 @@ describe("Park", function() {
     park.addDinosaur(dinosaur4);
     assert.strictEqual(4,park.moreThanTwoOffspring()[1].offspring);
   });
+
+  it("should be able to calculate number of dinosaurs after year one, starting with 1 dinosaur - v1", function(){
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur5);
+    assert.strictEqual(3,park.totalDinosaursPerYearByType("Triceratops",2016));
+  });
+
+  it("should be able to calculate number of dinosaurs after year one, starting with 1 dinosaur - v2", function(){
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+    park.addDinosaur(dinosaur5);
+    park.addDinosaur(dinosaur6);
+    assert.strictEqual(3,park.totalDinosaursPerYearByType("Tyrannosaurus",2016));
+    assert.strictEqual(4,park.totalDinosaursPerYearByType("Tyrannosaurus",2017));
+  });
+
 })
+
+
+

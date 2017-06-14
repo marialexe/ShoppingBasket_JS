@@ -28,8 +28,21 @@ Park.prototype = {
       }
     }
     return moreThanTwoOffsprings;
+  },
+
+  totalDinosaursPerYearByType: function(dinosaurType,year) {
+    var count = 0;
+    for(var i=0; i< this.enclosure.length;i++) {
+      if (this.enclosure[i].type === dinosaurType && this.enclosure[i].year === year) {
+        count += this.enclosure[i].offspring;
+
+      }
+    }
+    return count;
   }
 
 }
+
+
 
 module.exports = Park;

@@ -1,13 +1,7 @@
-var Dinosaur = function(type, offspring) {
+var Dinosaur = function(type, offspring, year) {
   this.type = type;
   this.offspring = offspring;
-  this.offsprings = [];
-  }
-
-  Dinosaur.prototype = {
-    addOffspring: function() {
-      this.offsprings.push(this.offspring);
-    }
+  this.year = year;
   }
 
   module.exports = Dinosaur;

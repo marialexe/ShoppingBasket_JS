@@ -7,7 +7,7 @@ describe("Dinosaur", function() {
   var dinosaur2;
 
   beforeEach(function() {
-    dinosaur1 = new Dinosaur("Tyrannosaurus",2);
+    dinosaur1 = new Dinosaur("Tyrannosaurus",2, 2016);
   });
 
   it("should output the dinosaur type", function() {
@@ -18,9 +18,4 @@ describe("Dinosaur", function() {
     assert.strictEqual(2,dinosaur1.offspring);
   });
 
-
-  it("should add this year offspring to an array of offsprings)", function(){
-    dinosaur1.addOffspring();
-    assert.strictEqual(1,dinosaur1.offsprings.length);
-  })
 })
